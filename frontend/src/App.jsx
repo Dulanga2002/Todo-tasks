@@ -41,10 +41,7 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app-header">
-        <h1>📝 Todo Task Manager</h1>
-        <p>Manage your tasks efficiently</p>
-      </header>
+      
 
       <main className="app-main">
         <TaskForm onTaskCreated={handleTaskCreated} />
@@ -55,10 +52,6 @@ function App() {
           error={error}
         />
       </main>
-
-      <footer className="app-footer">
-        <p>Built with React + Express + MySQL</p>
-      </footer>
     </div>
   );
 }
