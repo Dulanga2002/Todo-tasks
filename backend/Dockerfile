@@ -6,7 +6,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+# Use npm install --omit=dev instead of npm ci because a package-lock.json
+# is not present in the build context; npm ci requires an existing lockfile.
+# Also disable audit/funding messages to keep image build logs concise.
+RUN npm install --omit=dev --no-audit --no-fund
 
 # Copy application code
 COPY . .
